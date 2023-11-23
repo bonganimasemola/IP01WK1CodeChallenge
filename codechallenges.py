@@ -23,11 +23,45 @@ def every_hour(hour, minute, period):
 
 ## Challenge 2: Two numbers are positive
 
- def is_positive(num1, num2, num3):
-     pass
+def is_positive(a, b, c):
+    
+    positive_count = 0
+    
+    if a > 0:
+        positive_count += 1
+    if b > 0:
+        positive_count += 1
+    if c > 0:
+        positive_count += 1
+    
+    return positive_count == 2
+
+# print(is_positive(4, -6, 9)) 
+# print(is_positive(-4, 6, 0)) 
 
 
+## Challenge 3: Consonant value 
 
+def is_consonant(char):
+    # Check if the alphabetical character is a consonant and separate out the vowel - "aeiou"
+    return char.isalpha() and char.lower() not in "aeiou"
 
+def max_consonant_value(s):
+    max_value = 0
+    current_value = 0
 
-## Challenge 3: Consoant value 
+    for char in s:
+        if is_consonant(char):
+            
+            current_value += ord(char.lower()) - ord('a') + 1
+        else:
+            
+            current_value = 0
+
+        # Update the maximum value if the current value is greater
+        max_value = max(max_value, current_value)
+
+    return max_value
+
+# print(max_consonant_value("abcabc"))  
+# print(max_consonant_value("xyz"))
